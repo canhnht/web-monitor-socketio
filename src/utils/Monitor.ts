@@ -1,15 +1,13 @@
 import socketio, { Socket } from 'socket.io-client';
 
-type SocketType = typeof Socket
-
 export class Monitor {
-    socket!: SocketType
+    socket!: Socket
 
     constructor(socketioUrl: string) {
         this.socket = socketio(socketioUrl)
     }
 
-    on(event: string, fn: Function){
+    on(event: string, fn: any) {
         this.socket.on(event, fn)
     }
 }
